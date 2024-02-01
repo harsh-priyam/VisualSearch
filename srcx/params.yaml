@@ -1,1 +1,3 @@
-value: gibrish
+WEIGHTS: 'imagenet'
+INCLUDE_TOP: False
+INPUT_SHAPE: [224,224,3]

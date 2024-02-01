@@ -10,5 +10,6 @@ notebook
 python-box==6.0.2
 types-pyYAML
 dvc
+joblib
 
 -e .
