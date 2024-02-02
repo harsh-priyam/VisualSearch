@@ -11,5 +11,6 @@ python-box==6.0.2
 types-pyYAML
 dvc
 joblib
-
+streamlit
+altair==4.1.0
 -e .
