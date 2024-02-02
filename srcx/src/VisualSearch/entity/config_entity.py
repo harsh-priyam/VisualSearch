@@ -17,3 +17,11 @@ class PrepareBaseModelConfig:
     params_image_size: list 
     base_model: Path
 
+@dataclass(frozen=True)
+class DataPreprocessingConfig:
+    root_dir: Path
+    data_path: Path
+    model_path: Path
+    feature_list: Path 
+    file_names: Path 
+    params_target_size: list    

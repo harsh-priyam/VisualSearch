@@ -1,6 +1,6 @@
 from VisualSearch.constants import *
 from VisualSearch.utils.common import read_yaml, create_directories
-from VisualSearch.entity.config_entity import (DataIngestionConfig,PrepareBaseModelConfig)
+from VisualSearch.entity.config_entity import (DataIngestionConfig,PrepareBaseModelConfig,DataPreprocessingConfig)
 
 class ConfigurationManager:
       def __init__(
@@ -44,3 +44,18 @@ class ConfigurationManager:
           )
 
           return prepare_base_model_config   
+      
+      def get_data_preprocessing_config(self) -> DataPreprocessingConfig:
+        config = self.config.data_preprocessing 
+        create_directories([config.root_dir])
+
+        data_preprocessing_config = DataPreprocessingConfig(
+             root_dir=config.root_dir,
+             data_path=config.data_path,
+             model_path=config.model_path,
+             feature_list=config.feature_list,
+             file_names=config.file_names,
+             params_target_size=self.params.TARGET_SIZE
+        )
+
+        return data_preprocessing_config
