@@ -10,11 +10,11 @@ from sklearn.neighbors import NearestNeighbors
 import cv2
 import joblib
 
-model = joblib.load('artifacts/prepare_base_model/base_model.joblib')
+model = joblib.load('src/artifacts/prepare_base_model/base_model.joblib')
 
 
-dir_file = 'artifacts/data_preprocessing/'
-data_img_path = 'artifacts/data_ingestion/'
+dir_file = 'src/artifacts/data_preprocessing/'
+data_img_path = 'src/artifacts/data_ingestion/'
 
 embeddings_file_path = os.path.join(dir_file,'embeddings.pkl')
 # print(embeddings_file_path)
