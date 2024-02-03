@@ -76,5 +76,5 @@ if uploaded_file is not None:
 
 
     else:
-        st.header("Some error occured in the file upload")
+        st.header("Some error occured in the file uploads")
 
