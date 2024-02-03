@@ -7,11 +7,9 @@ from tensorflow.keras.preprocessing import image
 from numpy.linalg import norm
 from tensorflow.keras.applications.resnet50 import preprocess_input
 from sklearn.neighbors import NearestNeighbors
-import cv2
 import joblib
 
 model = joblib.load('src/artifacts/prepare_base_model/base_model.joblib')
-
 
 dir_file = 'src/artifacts/data_preprocessing/'
 data_img_path = 'src/artifacts/data_ingestion/'
@@ -31,6 +29,7 @@ def save_uploaded_file(uploaded_file):
     try:
         with open(os.path.join('uploads',uploaded_file.name),'wb') as f:
             f.write(uploaded_file.getbuffer())
+
         return 1
     except:
         return 0
@@ -60,6 +59,7 @@ if uploaded_file is not None:
         features = feature_extraction(os.path.join("uploads",uploaded_file.name),model)
         indices = recommend(features,feature_list)
 
+
         col1,col2,col3,col4,col5 = st.columns(5)
 
         with col1:
@@ -74,5 +74,7 @@ if uploaded_file is not None:
             st.image(Image.open(os.path.join(data_img_path, filenames[indices[0][4]].replace('\\', '/'))))
 
 
+
     else:
         st.header("Some error occured in the file upload")
+
